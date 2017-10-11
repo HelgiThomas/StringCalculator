@@ -1,0 +1,2 @@
+# StringCalculator
+Assignment for Hugbúnaðarfræði
