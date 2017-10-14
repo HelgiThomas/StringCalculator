@@ -46,4 +46,11 @@ public class CalculatorTest {
 		}
 	}
 
+	@Test 
+	public void testBigNumber() {
+		Calculator calc = new Calculator();
+		assertEquals(0,calc.add("1001"));
+		assertEquals(2,calc.add("2,1001"));
+	}
+
 }

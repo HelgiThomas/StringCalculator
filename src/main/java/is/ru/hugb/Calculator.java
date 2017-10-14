@@ -31,7 +31,9 @@ public class Calculator {
 		int sum = 0;
 
 		for (String number: numbers) {
-				sum += toInt(number);
+				if (toInt(number) <= 1000) {
+					sum += toInt(number);
+				}
 			}
 
 		return sum;
