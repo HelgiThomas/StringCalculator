@@ -11,7 +11,7 @@ public class Calculator {
 		}
 		else {
 			if (text.contains(",")) {
-				String numbers[] = text.split(",");
+				String numbers[] = text.split(",|\n");
 				
 				return findSum(numbers);
 				
