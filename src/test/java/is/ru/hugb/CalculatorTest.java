@@ -34,5 +34,16 @@ public class CalculatorTest {
 		Calculator calc = new Calculator();
 		assertEquals(6,calc.add("1\n2,3"));
 	}
+	
+	@Test
+	public void testNegativeNumber() {
+		Calculator calc = new Calculator();
+		try {
+			calc.add("2,-4,3,-5,-6\n-7");
+		}
+		catch (RuntimeException ex) {
+			assertEquals("Negatives not allowed: -4,-5,-6,-7", ex.getMessage());
+		}
+	}
 
 }

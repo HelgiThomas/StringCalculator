@@ -10,15 +10,16 @@ public class Calculator {
 			return 0;
 		}
 		else {
-			if (text.contains(",")) {
-				String numbers[] = text.split(",|\n");
-				
-				return findSum(numbers);
-				
+			String numbers[] = text.split(",|\n");
+			String negative = negative(numbers);
+
+			if (negative.length() != 23) {
+				negative = negative.substring(0, negative.length() - 1);
+				throw new RuntimeException(negative);
 			}
 			else {
-				return toInt(text);
-			}
+				return findSum(numbers);
+			}		
 		}
 	}
 
@@ -34,6 +35,18 @@ public class Calculator {
 			}
 
 		return sum;
+	}
+
+	private static String negative (String[] numbers) {
+		String negativeNumbers = "Negatives not allowed: ";
+
+		for (String number : numbers) {
+			if (toInt(number) < 0) {
+				negativeNumbers += (number + ",");	
+			}
+		}
+
+		return negativeNumbers;
 	}
 
 }
