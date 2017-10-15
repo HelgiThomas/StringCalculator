@@ -53,4 +53,22 @@ public class CalculatorTest {
 		assertEquals(2,calc.add("2,1001"));
 	}
 
+	@Test 
+	public void testDelimeter() {
+		Calculator calc = new Calculator();
+		assertEquals(3,calc.add("//;\n1;2"));
+		assertEquals(3,calc.add("//!\n1!2"));
+	}
+	
+	@Test
+	public void testDelimeterNegative() {
+		Calculator calc = new Calculator();
+		try {
+			calc.add("//;\n1;2;-3;-4");
+		}
+		catch (RuntimeException ex) {
+			assertEquals("Negatives not allowed: -3,-4", ex.getMessage());
+		}
+	}	
+
 }

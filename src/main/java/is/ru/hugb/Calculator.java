@@ -10,7 +10,8 @@ public class Calculator {
 			return 0;
 		}
 		else {
-			String numbers[] = text.split(",|\n");
+			String numbers[] = delimeter(text);
+
 			String negative = negative(numbers);
 
 			if (negative.length() != 23) {
@@ -51,4 +52,23 @@ public class Calculator {
 		return negativeNumbers;
 	}
 
+	private static String[] delimeter(String text) {
+
+		String [] numbers;
+		if (text.length() == 1) {
+			numbers = text.split(",|\n");
+			return numbers;
+		}
+
+		if (text.substring(0,2).equals("//")) {
+			char delimeter = text.charAt(2);
+			String delimeterString = text.substring(4,text.length());
+			numbers = delimeterString.split(Character.toString(delimeter));
+			return numbers;
+		}
+		else {
+			numbers = text.split(",|\n");
+			return numbers;
+		}
+	}
 }
